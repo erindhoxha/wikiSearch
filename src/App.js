@@ -27,6 +27,9 @@ export default () => {
     return (
     <div className="ui container">
         <Header />
+        <Route path="/">
+            <Accordion data={options}/> 
+        </Route>
         <Route path="/dropdown">
             <Dropdown 
             label={'Select a framework'}
@@ -39,9 +42,6 @@ export default () => {
         </Route>
         <Route path="/search">
             <Search />
-        </Route>
-        <Route path="/accordion">
-            <Accordion data={options}/> 
         </Route>
     </div>
     )
