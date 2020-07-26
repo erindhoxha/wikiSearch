@@ -15,7 +15,7 @@ const Accordion = ({ data }) => {
                     {item.title}
                 </div>
                 <div className={`content ${active}`}>
-                    <p className="transition visible">{item.content}</p>
+                    <p className="transition visible">{item.label}</p>
                 </div>
             </React.Fragment>
         )

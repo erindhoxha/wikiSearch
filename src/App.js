@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Search from './components/Search';
 import Dropdown from './components/Dropdown';
 import Translate from './components/Translate';
+import Route from './components/Route';
 
 const options = [
     {
@@ -22,17 +23,26 @@ const options = [
 
 export default () => {
     const [selected, setSelected] = useState(options[0]);
+    
     return (
     <div className="ui container">
         <Header />
-        <Translate options={options} label={'Select a language'} selected={selected} setSelected={setSelected} />
-        {/* <Dropdown 
-        label={'Select a framework'}
-        setSelected={setSelected} 
-        selected={selected} 
-        options={options} />
-        <Search /> */}
-        {/* <Accordion data={items}/> */}
+        <Route path="/dropdown">
+            <Dropdown 
+            label={'Select a framework'}
+            setSelected={setSelected} 
+            selected={selected} 
+            options={options} />
+        </Route>
+        <Route path="/translate">
+            <Translate options={options} label={'Select a language'} selected={selected} setSelected={setSelected} />
+        </Route>
+        <Route path="/search">
+            <Search />
+        </Route>
+        <Route path="/accordion">
+            <Accordion data={options}/> 
+        </Route>
     </div>
     )
 }
